@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://mfjonwkn2fwd"]
+
+[ext_resource type="Texture2D" uid="uid://c3amk2i5wi8ni" path="res://sprites/nav.png" id="1_vhpjo"]
+[ext_resource type="Script" uid="uid://b6l887un0oju4" path="res://scripts/scroll_container.gd" id="2_1kvpb"]
+[ext_resource type="Texture2D" uid="uid://bijcv65umaftr" path="res://sprites/texto.png" id="3_w6ikf"]
+[ext_resource type="Texture2D" uid="uid://bu23cnt8d1wku" path="res://sprites/avatar40x40.png" id="4_mp81g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0d2e0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mir7d"]
+
+[node name="whatsapp" type="Node2D"]
+
+[node name="nav" type="TextureRect" parent="."]
+self_modulate = Color(0.0588235, 0.0588235, 0.117647, 1)
+offset_right = 360.0
+offset_bottom = 640.0
+texture = ExtResource("1_vhpjo")
+
+[node name="mensagens" type="ScrollContainer" parent="."]
+offset_left = 30.0
+offset_top = 110.0
+offset_right = 340.0
+offset_bottom = 510.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+script = ExtResource("2_1kvpb")
+
+[node name="CenterContainer" type="CenterContainer" parent="mensagens"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="mensagens/CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="HFlowContainer" type="HFlowContainer" parent="mensagens/CenterContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/v_separation = 15
+
+[node name="fill" type="PanelContainer" parent="mensagens/CenterContainer/MarginContainer/HFlowContainer"]
+custom_minimum_size = Vector2(260, 370)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0d2e0")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 40.0
+offset_top = 520.0
+offset_right = 320.0
+offset_bottom = 580.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mir7d")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_w6ikf")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/margin_right = 20
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer"]
+self_modulate = Color(0.27451, 0.666667, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_mp81g")
