@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1ot6xadn4y54"]
+[gd_scene load_steps=13 format=3 uid="uid://c1ot6xadn4y54"]
 
 [ext_resource type="Texture2D" uid="uid://bwbqf7mibyfkj" path="res://sprites/full.png" id="1_dv2u5"]
 [ext_resource type="Texture2D" uid="uid://dnxa0qqc266ph" path="res://sprites/fundo.png" id="2_7bw3u"]
@@ -7,8 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://i76pbymiwp3s" path="res://sprites/minimizar2.png" id="6_ifc7g"]
 [ext_resource type="PackedScene" uid="uid://mfjonwkn2fwd" path="res://cenas/whatsapp.tscn" id="7_282o3"]
 [ext_resource type="Texture2D" uid="uid://cyrobn8yv6lji" path="res://sprites/voltar2.png" id="7_ojmnj"]
+[ext_resource type="Texture2D" uid="uid://bkaios4gu43b2" path="res://sprites/bateria.png" id="8_liar5"]
+[ext_resource type="PackedScene" uid="uid://bymfj8ad08etu" path="res://cenas/inicio.tscn" id="9_ifc7g"]
+[ext_resource type="FontFile" uid="uid://dtw6fklmxu1n2" path="res://fonts/PressStart2P-Regular.ttf" id="9_liar5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_282o3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_liar5"]
+font = ExtResource("9_liar5")
+font_size = 8
+shadow_size = 0
 
 [node name="Node2D" type="Node2D"]
 
@@ -25,48 +33,75 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("2_7bw3u")
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/celular"]
+[node name="tela" type="PanelContainer" parent="CenterContainer/celular"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_282o3")
 
-[node name="tela" type="TextureRect" parent="CenterContainer/celular/PanelContainer"]
+[node name="telaSprite" type="TextureRect" parent="CenterContainer/celular/tela"]
 self_modulate = Color(0.0784314, 0.0784314, 0.156863, 1)
 layout_mode = 2
 texture = ExtResource("3_7bw3u")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/celular/PanelContainer"]
+[node name="hora-bateria" type="MarginContainer" parent="CenterContainer/celular/tela"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_top = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/celular/tela/hora-bateria"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 160
+
+[node name="Label" type="Label" parent="CenterContainer/celular/tela/hora-bateria/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 8
+text = "21:39"
+label_settings = SubResource("LabelSettings_liar5")
+
+[node name="bateria" type="TextureRect" parent="CenterContainer/celular/tela/hora-bateria/HBoxContainer"]
+self_modulate = Color(1, 0, 0.0980392, 0.294118)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("8_liar5")
+
+[node name="subNav" type="MarginContainer" parent="CenterContainer/celular/tela"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/celular/PanelContainer/MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/celular/tela/subNav"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/celular/PanelContainer/MarginContainer/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/celular/tela/subNav/CenterContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 50
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/celular/PanelContainer/MarginContainer/CenterContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/celular/tela/subNav/CenterContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("5_liar5")
 
-[node name="TextureRect2" type="TextureRect" parent="CenterContainer/celular/PanelContainer/MarginContainer/CenterContainer/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/celular/tela/subNav/CenterContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("6_ifc7g")
 
-[node name="TextureRect3" type="TextureRect" parent="CenterContainer/celular/PanelContainer/MarginContainer/CenterContainer/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="CenterContainer/celular/tela/subNav/CenterContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("7_ojmnj")
+
+[node name="inicio" parent="CenterContainer/celular" instance=ExtResource("9_ifc7g")]
 
 [node name="whatsapp" parent="CenterContainer/celular" instance=ExtResource("7_282o3")]
 visible = false

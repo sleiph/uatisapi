@@ -45,25 +45,25 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0d2e0")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="input" type="PanelContainer" parent="."]
 offset_left = 40.0
 offset_top = 520.0
 offset_right = 320.0
 offset_bottom = 580.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_mir7d")
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="input"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("3_w6ikf")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="input"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/margin_right = 20
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="input/MarginContainer"]
 self_modulate = Color(0.27451, 0.666667, 1, 1)
 layout_mode = 2
 size_flags_horizontal = 4
