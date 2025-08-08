@@ -45,6 +45,7 @@ layout_mode = 2
 texture = ExtResource("3_7bw3u")
 
 [node name="hora-bateria" type="MarginContainer" parent="CenterContainer/celular/tela"]
+z_index = 100
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 65
@@ -70,6 +71,7 @@ size_flags_vertical = 0
 texture = ExtResource("8_liar5")
 
 [node name="subNav" type="MarginContainer" parent="CenterContainer/celular/tela"]
+z_index = 100
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 8
@@ -102,6 +104,6 @@ size_flags_vertical = 0
 texture = ExtResource("7_ojmnj")
 
 [node name="inicio" parent="CenterContainer/celular" instance=ExtResource("9_ifc7g")]
+visible = false
 
 [node name="whatsapp" parent="CenterContainer/celular" instance=ExtResource("7_282o3")]
-visible = false
