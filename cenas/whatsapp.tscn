@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://c3amk2i5wi8ni" path="res://sprites/nav.png" id="1_vhpjo"]
 [ext_resource type="Script" uid="uid://b6l887un0oju4" path="res://scripts/scroll_container.gd" id="2_1kvpb"]
 [ext_resource type="Texture2D" uid="uid://bjxbf54125kfb" path="res://sprites/voltar.png" id="3_cjki3"]
-[ext_resource type="Texture2D" uid="uid://bijcv65umaftr" path="res://sprites/texto.png" id="3_w6ikf"]
 [ext_resource type="Texture2D" uid="uid://cgwv6q2lawb8q" path="res://sprites/avatar.png" id="4_lc7lm"]
 [ext_resource type="Texture2D" uid="uid://bu23cnt8d1wku" path="res://sprites/avatar40x40.png" id="4_mp81g"]
 [ext_resource type="FontFile" uid="uid://dtw6fklmxu1n2" path="res://fonts/PressStart2P-Regular.ttf" id="5_wp3nq"]
 [ext_resource type="Texture2D" uid="uid://bacmm3looen3m" path="res://sprites/ligar.png" id="6_pytwq"]
 [ext_resource type="Texture2D" uid="uid://bpnc1tqvo7ktu" path="res://sprites/opcoes.png" id="7_6y3d3"]
+[ext_resource type="Texture2D" uid="uid://danuvtdusmrnh" path="res://sprites/placebo.png" id="9_wp3nq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wp3nq"]
 
@@ -22,7 +22,7 @@ font_size = 8
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0d2e0"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mir7d"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6y3d3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pytwq"]
 
@@ -131,46 +131,101 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0d2e0")
 
-[node name="input" type="PanelContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(280, 60)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
 offset_left = 40.0
 offset_top = 520.0
 offset_right = 320.0
 offset_bottom = 580.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_mir7d")
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6y3d3")
 
-[node name="fundo" type="TextureRect" parent="input"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("3_w6ikf")
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -60.0
+offset_right = 140.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="input"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 30
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("9_wp3nq")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 60
+theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TextEdit" type="TextEdit" parent="input/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("9_wp3nq")
+expand_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/MarginContainer3"]
+layout_mode = 2
+texture = ExtResource("9_wp3nq")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+z_index = 10
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextEdit" type="TextEdit" parent="Panel/MarginContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 theme_override_colors/font_placeholder_color = Color(0.509804, 0.509804, 0.588235, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/search_result_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 4
 theme_override_fonts/font = ExtResource("5_wp3nq")
 theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxEmpty_pytwq")
 placeholder_text = "Mensagem"
 wrap_mode = 1
 autowrap_mode = 1
+scroll_fit_content_height = true
 
-[node name="botao" type="MarginContainer" parent="input"]
+[node name="botao" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/margin_right = 20
 
-[node name="TextureRect" type="TextureRect" parent="input/botao"]
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/botao"]
 self_modulate = Color(0.27451, 0.666667, 1, 1)
 layout_mode = 2
 size_flags_horizontal = 4
