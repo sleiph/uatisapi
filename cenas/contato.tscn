@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://csu3o6a30d3oy"]
+
+[ext_resource type="Texture2D" uid="uid://cgwv6q2lawb8q" path="res://sprites/avatar.png" id="1_mw5ph"]
+[ext_resource type="FontFile" uid="uid://dtw6fklmxu1n2" path="res://fonts/PressStart2P-Regular.ttf" id="2_63777"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3f1o"]
+font = ExtResource("2_63777")
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1368"]
+font = ExtResource("2_63777")
+font_size = 8
+
+[node name="HBoxContainer" type="HBoxContainer"]
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_mw5ph")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Tiago"
+label_settings = SubResource("LabelSettings_x3f1o")
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "15:33"
+label_settings = SubResource("LabelSettings_c1368")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "kingdom hearts é ruim mesmo"
+label_settings = SubResource("LabelSettings_c1368")
